@@ -12,6 +12,8 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 syntax on
@@ -28,12 +30,13 @@ set spell spelllang=en_us
 set hlsearch
 set cursorline
 set colorcolumn=100
-"set background=dark"
-"colorscheme solarized"
 set directory=$HOME/.vim/swapfiles//
 autocmd BufWritePre * %s/\s\+$//e
 
+command GBlame Git blame
+
 map <C-p> :Files<CR>
+map <C-o> :Rg<CR>
 
 map <C-h> <C-w>h
 map <C-l> <C-w>l
