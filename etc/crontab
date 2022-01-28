@@ -1,0 +1,1 @@
+*/30 * * * * curl -L "https://wttr.in/Sofia?format=j1" | jq .current_condition[0].FeelsLikeC | tr -d '"' &> /tmp/.weather.cache

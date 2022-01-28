@@ -170,7 +170,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command .config/i3/weather.sh
+        tray_output primary
+        # status_command i3status
 }
 
 exec --no-startup-id nm-applet
@@ -186,3 +188,6 @@ exec --no-startup-id workrave
 
 bindsym $mod+b exec "firefox"
 bindsym $mod+m exec "thunderbird"
+
+#exec xautolock -time 2 -locker "i3lock --image /home/rosen/.config/i3/screen_saver.png"
+bindsym $mod+Shift+s exec "i3lock --image /home/rosen/.config/i3/screen_saver.png"
