@@ -170,24 +170,34 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        # NOTE - Commented out, because we use a custom script to generate the status line
+        # status_command i3status
         status_command .config/i3/weather.sh
         tray_output primary
-        # status_command i3status
 }
 
+# Launch utils
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
-
-exec xbacklight -set 50
-
-bindsym XF86Display exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-
-exec xrandr --output VGA1 --mode 1920x1200 --left-of LVDS1
 exec --no-startup-id workrave
 
+# Set backlight at startup
+exec xbacklight -set 50
+
+# Setup brightness controls
+bindsym XF86Display exec "~/.config/i3/brightness_down.sh"
+bindsym XF86MonBrightnessUp exec "~/.config/i3/brightness_up.sh"
+
+# Setup audio controls
+bindsym XF86AudioMute exec "~/.config/i3/volume_mute.sh"
+bindsym XF86AudioMicMute exec "~/.config/i3/mic_mute.sh"
+bindsym XF86AudioRaiseVolume exec "~/.config/i3/volume_up.sh"
+bindsym XF86AudioLowerVolume exec "~/.config/i3/volume_down.sh"
+
+# Add bindings to launch apps
 bindsym $mod+b exec "firefox"
 bindsym $mod+m exec "thunderbird"
 
-#exec xautolock -time 2 -locker "i3lock --image /home/rosen/.config/i3/screen_saver.png"
-bindsym $mod+Shift+s exec "i3lock --image /home/rosen/.config/i3/screen_saver.png"
+# Setup screen locker
+bindsym $mod+Shift+s exec "~/.config/i3/screen_lock_now.sh"
+exec --no-startup-id "~/.config/i3/screen_lock_inactive.sh"

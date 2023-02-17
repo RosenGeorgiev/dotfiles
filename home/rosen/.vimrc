@@ -17,6 +17,10 @@ Plug 'aklt/plantuml-syntax'
 
 Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'chrisbra/unicode.vim'
+
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
 
 call plug#end()
 
@@ -56,3 +60,4 @@ let g:airline_them='molokai'
 
 map <C-o> :Rg<CR>
 command GBlame Git blame
+call lh#local_vimrc#munge('whitelist', $HOME.'/devel/')

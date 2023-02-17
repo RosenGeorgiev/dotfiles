@@ -8,6 +8,11 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+alias mj4='make -j4'
+
 set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
