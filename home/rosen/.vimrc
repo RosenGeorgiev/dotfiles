@@ -60,6 +60,10 @@ map <C-k> <C-w>k
 map <C-PageUp> :tabp<CR>
 map <C-PageDown> :tabn<CR>
 map <C-f> :NERDTreeToggle<CR>
+map <C-F9> :ALEGoToDefinition<CR>
+map <C-F10> :ALEFindReferences<CR>
+map <C-F11> :ALEHover<CR>
+map <C-F12> :ALESymbolSearch
 
 " Configure general behaviour
 syntax on
